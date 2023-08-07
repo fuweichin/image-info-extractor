@@ -1,0 +1,22 @@
+Image Info Extractor
+Copyright 2023 Fuwei Chin
+
+This product includes software developed by
+Constantin Titarenko (https://github.com/titarenko) released under MIT License,
+Devon Govett (https://github.com/devongovett) released under MIT License,
+Lovell Fuller (https://github.com/lovell)
+and other contributors.
+
+The Initial Developer of the JPEG reader (src/jpeg-reader.js), which is copied from, derived from, or
+inspired by [fast-exif 2.0.1] (https://github.com/titarenko/fast-exif) is Constantin Titarenko.
+MIT License
+
+The Initial Developer of the EXIF parser (src/exif-parser.js), which is copied from, derived from, or
+inspired by [exif-reader 1.2.0] (https://github.com/devongovett/exif-reader) is Devon Govett.
+MIT License
+Copyright (c) 2015 Devon Govett and others
+
+The Initial Developer of the ICC parser (src/icc-parser.js), which is copied from, derived from, or
+inspired by [icc 3.0.0] (https://github.com/lovell/icc) is Lovell Fuller.
+Apache License Version 2.0
+Copyright 2015 Lovell Fuller and others

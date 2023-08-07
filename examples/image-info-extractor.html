@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark light" />
+<title>Image Info Extractor</title>
+</head>
+<body>
+<h1>Image Info Extractor</h1>
+<template>
+<div>
+  <form>
+    Image file: 
+    <input type="file" id="file" accept=".jpg,.jpeg,.png,.apng,.webp,.avif,.heif,.heic,.avifs,.heifs,.heics,.svg"
+      @change="handleFileChange" />
+    accepting JPEG, PNG, WebP, AVIF
+  </form>
+  <div v-if="fileName">
+    File name: <output>{{fileName}}</output>
+    <p>
+      Info<br/>
+      <ul>
+        <li v-for="item of infoEntries" :key="item.key">{{item.key}}: {{item.value}}</li>
+      </ul>
+    </p>
+    <p>
+      Metadata<br/>
+      <table id="table1" border="1" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Type</td>
+          <td>Size</td>
+          <td>Download</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item of metaEntries">
+          <td>{{item.label}}</td>
+          <td>{{item.file.size}} bytes</td>
+          <td><a :href="item.url" :download="item.file.name">{{item.file.name}}</a></td>
+        </tr>
+      </tbody>
+      </table>
+    </p>
+    <p>
+      GPS<br/>
+      Coords: <output>{{gpsCoords}}</output><br/>
+      TimeStamp: <output>{{gpsTimeStamp}}</output><br/>
+    </p>
+    <p>
+      Thumbnail<br />
+      Source: <output>{{thumbnailSource}}</output><br/>
+      Image: <span v-if="thumbnail">{{thumbnail.type}} {{thumbnail.size}} bytes
+        <a :href="thumbnail.src" :download="thumbnail.name">{{thumbnail.name}}</a><br />
+        <img :src="thumbnail.src" :width="thumbnail" :height="thumbnail.height" alt="" /></span>
+    </p>
+  </div>
+</div>
+</template>
+
+<script type="importmap">
+{
+  "imports": {
+    "vue2": "https://unpkg.com/vue@2.7.14/dist/vue.esm.browser.min.js",
+    "image-info-extractor": "../src/extractor.js"
+  }
+}
+</script>
+<script type="module" src="./image-info-extractor.js"></script>
+</body>
+</html>

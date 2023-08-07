@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": "stylelint-config-recommended",
+  "rules": {
+    "linebreaks": "unix",
+    "indentation": 2,
+    "no-duplicate-selectors": null,
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-list-comma-newline-after": "always-multi-line",
+    "block-opening-brace-space-before": "always",
+    "no-descending-specificity": null,
+    "no-empty-source": null
+  }
+}

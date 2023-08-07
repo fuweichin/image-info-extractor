@@ -1,0 +1,35 @@
+{
+  "name": "image-info-extractor",
+  "version": "0.1.0",
+  "description": "A lib to read image info and to extract/parse image metadata",
+  "author": "Fuwei Chin",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/extractor.js",
+  "browser": "dist/extractor.min.js",
+  "types": "dist/extractor.d.ts",
+  "scripts": {
+    "test": "jasmine",
+    "build": "rollup -c rollup.config.js",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuweichin/image-info-extractor"
+  },
+  "keywords": [
+    "metadata",
+    "reader",
+    "EXIF",
+    "XMP",
+    "ICC",
+    "extrator"
+  ],
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "NOTICE"
+  ]
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark light" />
+<title>Sidecar File Viewer</title>
+<style>
+.btn{
+  width: 120px;
+  height: 32px;
+}
+.btn.dragover{
+  outline: 1px solid #00ffff;
+}
+</style>
+</head>
+<body>
+<h1>Sidecar File Viewer</h1>
+<button id="openFile" class="btn">Open image file</button> accepting EXIF, XMP, ICC
+<p>or drag and drop a file over the button</p>
+<p>Open DevTools Console to see result.</p>
+
+<script type="module" src="./sidecar-file-viewer.js"></script>
+</body>
+</html>

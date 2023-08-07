@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 16 8">
+  <!-- sRGB -->
+  <path fill="#000" d="M14,0 h2 v4 h-2 v-4" />
+  <path fill="#00F" d="M12,0 h2 v4 h-2 v-4" />
+  <path fill="#F00" d="M10,0 h2 v4 h-2 v-4" />
+  <path fill="#F0F" d="M8,0 h2 v4 h-2 v-4" />
+  <path fill="#0F0" d="M6,0 h2 v4 h-2 v-4" />
+  <path fill="#0FF" d="M4,0 h2 v4 h-2 v-4" />
+  <path fill="#FF0" d="M2,0 h2 v4 h-2 v-4" />
+  <path fill="#FFF" d="M0,0 h2 v4 h-2 v-4" />
+  <!-- Display P3 -->
+  <rect fill="color(display-p3 0 0 0)" x="14" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 0 0 1)" x="12" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 1 0 0)" x="10" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 1 0 1)" x="8" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 0 1 0)" x="6" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 0 1 1)" x="4" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 1 1 0)" x="2" y="4" width="2" height="4" />
+  <rect fill="color(display-p3 1 1 1)" x="0" y="4" width="2" height="4" />
+</svg>
