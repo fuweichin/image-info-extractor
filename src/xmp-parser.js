@@ -50,13 +50,11 @@ export function parse(buffer) {
       continue;
     }
     // iterate over attributes
-    let nsMap = {rdf: rdfxmlns};
     for (let attr of descEl.attributes) {
       let {prefix, localName, value} = attr;
       if (prefix.length === 0) {
         continue;
       } else if (prefix === 'xmlns') {
-        nsMap[localName] = value;
         let group = parsed[localName];
         if (!group) {
           group = parsed[localName] = {};
@@ -82,6 +80,38 @@ export function parse(buffer) {
   }
   return parsed;
 }
+function parseNestedRDFDescription(descEl) {
+  let parsed = {};
+  // iterate over attributes
+  for (let attr of descEl.attributes) {
+    let {prefix, localName, value} = attr;
+    if (prefix.length === 0) {
+      continue;
+    } else if (prefix === 'xmlns') {
+      let group = parsed[localName];
+      if (!group) {
+        group = parsed[localName] = {};
+      }
+    } else {
+      let group = parsed[prefix];
+      if (!group) {
+        group = parsed[prefix] = {};
+      }
+      setProperty(group, attr.name, localName, value);
+    }
+  }
+  // walk through chidren
+  for (let tagEl of descEl.children) {
+    let {prefix, localName} = tagEl;
+    let group = parsed[prefix];
+    if (!group) {
+      continue;
+    }
+    let value = parseElementAsValue(tagEl);
+    setProperty(group, tagEl.nodeName, localName, value);
+  }
+  return parsed;
+}
 function setProperty(target, name, localName, value) {
   let type = tagTypeMap[name];
   if (type) {
@@ -99,12 +129,12 @@ function setProperty(target, name, localName, value) {
       case 'rational':
         val = parseRational(value);
         break;
-      // case 'integer[]':
-      //   val = value.map(Number);
-      //   break;
-      // case 'boolean[]':
-      //   val = value.map((s) => s.length === 4);
-      //   break;
+      case 'integer[]':
+        val = value.map(Number);
+        break;
+      case 'boolean[]':
+        val = value.map((s) => s.length === 4);
+        break;
       case 'rational[]':
         val = value.map(parseRational);
         break;
@@ -213,6 +243,13 @@ function parseRDFAsValue(rdfEl, contextEl) {
             val.push(parseChildrenAsValue(li));
           } else {
             val.push(parseAttributesAsVaue(li, lastAttr.prefix));
+          }
+        } else if (li.childElementCount === 1) {
+          let childEl = li.children[0];
+          if (childEl.nodeName === 'rdf:Description') {
+            val.push(parseNestedRDFDescription(childEl));
+          } else {
+            val.push(parseElementAsValue(childEl));
           }
         } else {
           val.push(li.textContent);

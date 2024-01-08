@@ -1,6 +1,6 @@
 {
   "name": "image-info-extractor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lib to read image info and to extract/parse image metadata",
   "author": "Fuwei Chin",
   "license": "MIT",
